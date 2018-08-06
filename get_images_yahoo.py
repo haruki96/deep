@@ -1,6 +1,5 @@
 ###画像自動取得###
 
-
 import os
 import sys
 import traceback
@@ -10,7 +9,7 @@ from urllib.request import urlopen, Request
 from urllib.parse import quote
 from bs4 import BeautifulSoup
 
-MY_EMAIL_ADDR = 'haruki150714@gmail.com'
+MY_EMAIL_ADDR = '-----'
 
 class Fetcher:
     def __init__(self, ua=''):
@@ -31,7 +30,7 @@ class Fetcher:
 fetcher = Fetcher(MY_EMAIL_ADDR)
 
 
-N = 240    #numbering
+N = 0    #numbering
 
 def fetch_and_save_img(word):
     data_dir = './Ishihara_Satomi_two'    #mkdir
@@ -49,7 +48,7 @@ def fetch_and_save_img(word):
             ext = '.jpg'
         if not ext:
             continue
-        result_file = os.path.join(data_dir, str(i+N) + ext)   #i+(x) 変えるところ
+        result_file = os.path.join(data_dir, str(i+N) + ext)   ###
         with open(result_file, mode='wb') as f:
             f.write(img)
 #        print('fetched', img_url)
